@@ -6,7 +6,7 @@ require_relative 'lib/pics'
 get '/' do
   cookies[:to_exclude] ||= ""
   @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
-  @pics = Pics.get(:gender => @to_guess.gender, :quantity => 4, :pick => @to_guess)
+  @pics = Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess
   @total = Pics.total
   @progress = cookies[:right].to_i + cookies[:wrong].to_i
   erb :main

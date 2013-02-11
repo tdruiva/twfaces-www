@@ -6,6 +6,7 @@
 
 <form action="/guess" method="post" >
   <input type="hidden" name="correct" value="<%= @to_guess.link %>" />
+  <input type="hidden" name="id" value="<%= @to_guess.id %>" />
   <% @pics.each do |pic| %> 
     <span>
       <input type="radio" name="guess" value="<%= pic.link %>" />

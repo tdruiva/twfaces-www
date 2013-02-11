@@ -1,10 +1,13 @@
 class Pic
-  attr_reader :link, :gender, :name
+  @@id = 0
+  attr_reader :link, :gender, :name, :id
 
   def initialize link
     @link = link.split('/').last
     @gender = @link.split('_').first.to_sym
     @name = get_name
+    @id = @@id
+    @@id += 1
   end
 
   private
@@ -22,11 +25,17 @@ class Pics
     @@pics.size
   end
 
-  def self.get params
+  def self.random params
     load_pics
+    picks = @@pics.collect { |e| e if !params[:to_exclude].include?(e.id) }
+    picks.shuffle.first
+  end
+
+  def self.get params
     gender, quantity = params[:gender], params[:quantity]
     pics = []
     same_gender_pics = @@pics_by_gender[gender].dup
+    same_gender_pics.delete_if { |e| e.id == params[:pick].id }
     quantity.times do 
       shuffled = same_gender_pics.shuffle
       pick = shuffled.shift

@@ -49,7 +49,7 @@ class Pics
   def self.load_pics
     return if !@@pics.nil?
     @@pics, @@pics_by_gender = [], { :m => [],  :f => [] }
-    Dir[File.join(settings.public_folder, "**.*")].each do |pic_link| 
+    Dir[File.join(settings.public_folder, "pics/**.*")].each do |pic_link| 
       pic = Pic.new(pic_link)
       @@pics << pic
       @@pics_by_gender[:m] << pic if pic.link =~ /^m/

@@ -8,16 +8,12 @@ get '/' do
   @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
   @pics = (Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle
   @total = Pics.total
-  @progress = cookies[:right].to_i + cookies[:wrong].to_i
+  @progress = cookies[:right].to_i
   erb :main
 end
 
 post '/guess' do
-  if params["correct"] == params["guess"] then
-    cookies[:right] = add_to_string(1, cookies[:right])
-  else
-    cookies[:wrong] = add_to_string(1, cookies[:wrong])
-  end
+  cookies[:right] = add_to_string(1, cookies[:right]) if params["correct"] == params["guess"]
   cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], params[:id])
   redirect '/'
 end

@@ -2,9 +2,12 @@
 
 <form action="/guess" >
   <% @pics.each do |pic| %> 
-    <div>
-      <input type="radio" name="guess" value="<%= pic %>" />
-      <img src="/<%= pic %>" width="200" height="150" />
-    </div>
+    <span>
+      <input type="radio" name="guess" value="<%= pic.link %>" >
+        <img src="/<%= pic.link %>" width="220" height="250" />
+      </input>
+    </span>
   <% end %>
+  <br />
+  <input type="submit" value="This is the one!" />
 </form>

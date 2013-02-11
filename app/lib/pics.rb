@@ -18,21 +18,15 @@ end
 class Pics
   @@pics = nil
 
-  def self.random
-    if @@pics.nil?
-      load_pics
-    end
-    @@pics.shuffle.first
-  end
-
   def self.get params
+    load_pics
     gender, quantity = params[:gender], params[:quantity]
     pics = []
     same_gender_pics = @@pics_by_gender[gender].dup
     quantity.times do 
       shuffled = same_gender_pics.shuffle
       pick = shuffled.shift
-      pics.push(pick) if pick.link != params[:to_guess]
+      pics.push(pick)
       same_gender_pics = shuffled
     end
     pics
@@ -40,6 +34,7 @@ class Pics
 
   private
   def self.load_pics
+    return if !@@pics.nil?
     @@pics, @@pics_by_gender = [], { :m => [],  :f => [] }
     Dir[File.join(settings.public_folder, "**.*")].each do |pic_link| 
       pic = Pic.new(pic_link)

@@ -4,8 +4,11 @@ require_relative 'lib/pics'
 
 
 get '/' do
-  @to_guess = Pics.random
-  @pics = Pics.get(:to_guess => @to_guess.link, :gender => @to_guess.gender, :quantity => 3).collect { |e| e.link } 
-  @pics << @to_guess.link
+  @pics = Pics.get(:gender => [:m, :f].shuffle.first, :quantity => 4)
+  @to_guess = @pics.shuffle.first
   erb :main
+end
+
+post '/guess' do
+  redirect_to '/'
 end

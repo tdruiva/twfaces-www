@@ -11,8 +11,8 @@
   
     <img src="http://thoughtworks.com/imgs/tw-logo.png" width="300" />
 
-    <h1>Who is <%= @to_guess.name %>?</h2>
-    <h2>Progress: <%= @progress %>/<%= @total %><h3>
+    <h1>Who is <%= @to_guess.name %>?</h1>
+    <h2>Progress: <%= @progress %>/<%= @total %><h2>
 
     <form id="guess_form" action="/guess" method="post" >
       <input type="hidden" name="correct" value="<%= @to_guess.id %>" />

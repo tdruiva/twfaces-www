@@ -1,0 +1,10 @@
+<h2>Who is <%= @to_guess.name %>?</h2>
+
+<form action="/guess" >
+  <% @pics.each do |pic| %> 
+    <div>
+      <input type="radio" name="guess" value="<%= pic %>" />
+      <img src="/<%= pic %>" width="200" height="150" />
+    </div>
+  <% end %>
+</form>

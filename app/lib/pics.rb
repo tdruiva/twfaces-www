@@ -18,6 +18,10 @@ end
 class Pics
   @@pics = nil
 
+  def self.total
+    @@pics.size
+  end
+
   def self.get params
     load_pics
     gender, quantity = params[:gender], params[:quantity]

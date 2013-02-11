@@ -2,17 +2,21 @@
 <html>
   <head>
     <title>Who's the face of TWBR?"</title>
+    <script src="/js/jquery.js"></script>
+    <script src="/js/main.js"></script>
+    <link rel="stylesheet" href="/css/main.css" />
   </head>
+
   <body>
     <h2>Who is <%= @to_guess.name %>?</h2>
     <h3>Progress: <%= @progress %>/<%= @total %><h3>
 
-    <form action="/guess" method="post" >
-      <input type="hidden" name="correct" value="<%= @to_guess.link %>" />
+    <form id="guess_form" action="/guess" method="post" >
+      <input type="hidden" name="correct" value="<%= @to_guess.id %>" />
+      <input type="hidden" id="guess" name="guess" />
         <% @pics.each do |pic| %> 
           <span>
-            <input type="radio" name="guess" value="<%= pic.link %>" />
-            <img src="/<%= pic.link %>" width="220" height="250" />
+            <img src="/<%= pic.link %>" id="<%= pic.id %>" class="tw_face" width="220" height="250" />
           </span>
         <% end %>
       <br />

@@ -3,8 +3,24 @@
   src: url('/fonts/Marydale.ttf');
 }
 
+* { 
+  margin: 0px;
+  padding: 0px;
+}
+
 html {
   font-family: 'marydale';
+  background-color: #DDEEDD
+}
+
+body {
+  text-align: center
+}
+
+#wrapper {
+  width: 960px;
+  text-align: center;
+  background-color: #EEFFEE
 }
 
 .tw_face {
@@ -14,13 +30,14 @@ html {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
   margin: 20px;
-  border: #FEEECD solid 10px; 
+  border: #FEFF87 solid 10px; 
 }
 
 .tw_face:hover {
-  -webkit-transform: rotate(-10deg);
-  -moz-transform: rotate(-10deg);
-  -o-transform: rotate(-10deg);
-  -ms-transform: rotate(-10deg);
-  transform: rotate(-10deg);
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+  border: #FEFF30 solid 12px;
 }

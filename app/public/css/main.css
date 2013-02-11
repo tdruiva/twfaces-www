@@ -1,6 +1,10 @@
-#wrapper {
-  width: 960px;
-  margin: 0 auto;
+@font-face {FFEF
+  font-family: marydale;
+  src: url('/fonts/Marydale.ttf');
+}
+
+html {
+  font-family: marydale;
 }
 
 .tw_face {
@@ -9,7 +13,8 @@
   -o-transition: all 0.5s ease;
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
-  padding: 30px;
+  margin: 20px;
+  border: #FEEECD solid 10px; 
 }
 
 .tw_face:hover {

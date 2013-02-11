@@ -13,8 +13,10 @@ get '/' do
 end
 
 post '/guess' do
-  cookies[:right] = add_to_string(1, cookies[:right]) if params["correct"] == params["guess"]
-  cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], params[:id])
+  if params["correct"] == params["guess"] then
+    cookies[:right] = add_to_string(1, cookies[:right])
+    cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], params[:id])
+  end
   redirect '/'
 end
 
@@ -24,7 +26,7 @@ def add_to_exclude_to_list(list, id)
 end
 
 def add_to_string val, string
-  return 0 if string.nil?
+  return 0 if string == ""
   return (string.to_i + 1).to_s
 end
 

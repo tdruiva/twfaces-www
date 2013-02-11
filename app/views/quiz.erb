@@ -1,0 +1,12 @@
+<h1>Who is <%= @to_guess.name %>?</h1>
+<h2>Progress: <%= @progress %>/<%= @total %><h2>
+
+<form id="guess_form" action="/guess" method="post" >
+  <input type="hidden" name="correct" value="<%= @to_guess.id %>" />
+  <input type="hidden" id="guess" name="guess" />
+  <% @pics.each do |pic| %> 
+    <span><img src="/pics/<%= pic.link %>" id="<%= pic.id %>" class="tw_face" width="220" height="250" /></span>
+  <% end %>
+  <br />
+</form>
+

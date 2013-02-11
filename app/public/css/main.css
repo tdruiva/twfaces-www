@@ -1,10 +1,10 @@
-@font-face {FFEF
-  font-family: marydale;
+@font-face {
+  font-family: 'marydale';
   src: url('/fonts/Marydale.ttf');
 }
 
 html {
-  font-family: marydale;
+  font-family: 'marydale';
 }
 
 .tw_face {

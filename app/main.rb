@@ -9,10 +9,13 @@ end
 
 get '/quiz' do
   cookies[:to_exclude] ||= ""
-  @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
-  @pics = (Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle
   @total = Pics.total
   @progress = cookies[:right].to_i
+  return "<h1 style='color:yellow'>Congrats! Game over!</h1>" if @total == @progress
+
+  @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
+  @pics = (Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle
+
   response.headers['correctnes'] = params[:correct] if !params[:correct].nil? 
   erb :quiz
 end
@@ -24,6 +27,7 @@ post '/guess' do
     cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], params[:guess])
     redirect '/quiz?correct=y'
   end
+  cookies[:wrong] = add_to_string(1, cookies[:wrong])
   redirect '/quiz?correct=n'
 end
 

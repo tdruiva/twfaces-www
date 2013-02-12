@@ -22,11 +22,11 @@ class Pics
   @@pics = nil
 
   def self.total
+    load_pics
     @@pics.size
   end
 
   def self.random params
-    load_pics
     picks = @@pics.collect { |e| e if !params[:to_exclude].include?(e.id) }
     picks.shuffle.first
   end

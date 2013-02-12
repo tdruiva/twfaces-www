@@ -21,7 +21,6 @@ get '/quiz' do
 end
 
 post '/guess' do
-  puts params.inspect
   if params[:correct] == params[:guess] then
     cookies[:right] = add_to_string(1, cookies[:right])
     cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], params[:guess])

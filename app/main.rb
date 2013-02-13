@@ -9,6 +9,8 @@ end
 
 get '/quiz' do
   cookies[:to_exclude] ||= ""
+  response.headers['correctnes'] = params[:correct] if !params[:correct].nil?
+
   @total = Pics.total
   @progress = cookies[:right].to_i
   return "<h1>Congrats! Game over!</h1>" if @progress >= @total #just in case...
@@ -16,7 +18,6 @@ get '/quiz' do
   @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
   @pics = (Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle
 
-  response.headers['correctnes'] = params[:correct] if !params[:correct].nil? 
   erb :quiz
 end
 

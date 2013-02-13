@@ -14,7 +14,7 @@ $(function () {
 
 function bindFaces() {
   $(".tw_face").click(function (el) {
-    $(el.toElement.id).unbind();
+    $(el.toElement).unbind();
     $("#guess").attr("value", el.toElement.id);
     $.ajax({
       type: "POST",
@@ -23,12 +23,8 @@ function bindFaces() {
       data: $("#guess_form").serialize(),
       success: function (data, status, request) {
         var correct = request.getResponseHeader("correctnes");
-        if (correct === "y") {
-          $("#content").html(data);
-          bindFaces();
-        } else {
-          $("#content").shake();
-        }
+        (correct === "y") ? $("#content").html(data) : $("#content").shake();
+        bindFaces();
       }
     });
   });

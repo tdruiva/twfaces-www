@@ -17,6 +17,7 @@ function bindFaces() {
     $("#guess").attr("value", el.toElement.id);
     $.ajax({
       type: "POST",
+      async: false,
       url: "/guess",
       data: $("#guess_form").serialize(),
       success: function (data, status, request) {

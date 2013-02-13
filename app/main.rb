@@ -11,7 +11,7 @@ get '/quiz' do
   cookies[:to_exclude] ||= ""
   @total = Pics.total
   @progress = cookies[:right].to_i
-  return "<h1>Congrats! Game over!</h1>" if @total == @progress
+  return "<h1>Congrats! Game over!</h1>" if @progress >= @total #just in case...
 
   @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
   @pics = (Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle

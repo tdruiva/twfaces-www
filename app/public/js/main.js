@@ -14,8 +14,12 @@ $(function () {
 
 function bindFaces() {
   $(".tw_face").click(function (el) {
-    $(el.toElement).unbind();
-    $("#guess").attr("value", el.toElement.id);
+
+    element = el.toElement;
+    clickEvent = jQuery._data(element, "events").click[0];
+    $(element).unbind();
+
+    $("#guess").attr("value", element.id);
     $.ajax({
       type: "POST",
       async: false,
@@ -23,8 +27,13 @@ function bindFaces() {
       data: $("#guess_form").serialize(),
       success: function (data, status, request) {
         var correct = request.getResponseHeader("correctnes");
-        (correct === "y") ? $("#content").html(data) : $("#content").shake();
-        bindFaces();
+        if (correct === "y") { 
+          $("#content").html(data); 
+          bindFaces();
+        } else {
+          $("#content").shake();
+          $(element).click(clickEvent.handler);
+        }
       }
     });
   });

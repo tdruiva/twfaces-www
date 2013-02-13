@@ -14,6 +14,7 @@ $(function () {
 
 function bindFaces() {
   $(".tw_face").click(function (el) {
+    $(el.toElement.id).unbind();
     $("#guess").attr("value", el.toElement.id);
     $.ajax({
       type: "POST",

@@ -3,7 +3,7 @@
   src: url('/fonts/Marydale.ttf');
 }
 
-* { 
+* {
   margin: 0px;
   padding: 0px;
 }
@@ -29,7 +29,7 @@ body {
   -ms-transition: all 0.5s ease;
   transition: all 0.5s ease;
   margin: 20px;
-  border: #FEFF87 solid 10px; 
+  border: #FEFF87 solid 10px;
 }
 
 .tw_face:hover {
@@ -52,3 +52,39 @@ body {
   text-decoration: none;
   color: black;
 }
+
+@keyframes blink {
+  0% { left: 0; }
+  25% { left: -25px; }
+  50% { left: -50px; }
+  75% { left: -25px; }
+  100% { left: 0; }
+}
+
+@-moz-keyframes blink {
+  0% { left: 0; }
+  25% { left: -25px; }
+  50% { left: -50px; }
+  75% { left: -25px; }
+  100% { left: 0; }
+}
+
+@-webkit-keyframes blink {
+  0% { left: 0; }
+  25% { left: -25px; }
+  50% { left: -50px; }
+  75% { left: -25px; }
+  100% { left: 0; }
+}
+
+.error-animation {
+  position: relative;
+  animation: blink 200ms;
+  animation-iteration-count: 3;
+  -moz-animation: blink 200ms;
+  -moz-animation-iteration-count: 3;
+  -webkit-animation: blink 200ms;
+  -webkit-animation-iteration-count: 3;
+  -o-animation: blink 200ms;
+}
+

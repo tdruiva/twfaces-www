@@ -18,13 +18,18 @@ class Crowd
     picks = []
     same_gender_picks = @@people_by_gender[gender].dup
     same_gender_picks.delete_if { |e| e.id == params[:pick].id }
-    quantity.times do 
+    quantity.times do
       shuffled = same_gender_picks.shuffle
       pick = shuffled.shift
       picks.push(pick)
       same_gender_picks = shuffled
     end
     picks
+  end
+
+  def self.everyone
+    load_data
+    @@people
   end
 
   private

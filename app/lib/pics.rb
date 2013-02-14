@@ -1,3 +1,5 @@
+require 'csv'
+
 class Pic
   attr_reader :gender, :name, :id, :link
 
@@ -37,8 +39,8 @@ class Pics
   private
   def self.load_pics
     @@pics, @@pics_by_gender = [], { :m => [],  :f => [] }
-    File.open(File.join(settings.root, "resources/peeps.csv")).each_line do |l|
-      gender, name, id, link = l.split(",")
+    CSV.foreach(File.join(settings.root, "resources/peeps.csv")) do |row|
+      gender, name, id, link = *row
       pic = Pic.new(gender.to_sym, name, id, link)
       @@pics << pic
       @@pics_by_gender[:m] << pic if pic.gender == :m

@@ -10,8 +10,7 @@ class Crowd
   end
 
   def self.random params
-    picks = @@people.select { |e| e if !params[:to_exclude].include?(e.id) }
-    picks.shuffle.first
+    @@people.select { |e| e if !params[:to_exclude].include?(e.id) }.sample
   end
 
   def self.get params

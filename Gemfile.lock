@@ -31,6 +31,7 @@ GEM
       rack
     rack-test (0.6.2)
       rack (>= 1.0)
+    redis (3.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rubyzip (0.9.9)
@@ -59,6 +60,7 @@ PLATFORMS
 DEPENDENCIES
   debugger
   heroku
+  redis
   shotgun
   sinatra
   sinatra-contrib

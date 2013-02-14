@@ -23,9 +23,13 @@ get '/quiz' do
 end
 
 post '/guess' do
-  if params[:correct] == params[:guess] then
+  correct = params[:correct]
+  guess = params[:guess]
+  ScoreBoard.record_guess correct, guess
+
+  if correct == guess then
     cookies[:right] = add_to_string(1, cookies[:right])
-    cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], params[:guess])
+    cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], guess)
     redirect '/quiz?correct=y'
   end
   cookies[:wrong] = add_to_string(1, cookies[:wrong])

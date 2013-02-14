@@ -1,19 +1,8 @@
 class Pic
-  @@id = 0
-  attr_reader :link, :gender, :name, :id
+  attr_reader :gender, :name, :id, :link
 
-  def initialize link
-    @link = link.split('/').last
-    @gender = @link.split('_').first.to_sym
-    @name = get_name
-    @id = @@id
-    @@id += 1
-  end
-
-  private
-  def get_name
-    to_split = @link.gsub(/\..*$/, "").split("_")
-    to_split.slice(1...(to_split.size)).map { |e| e.capitalize }.join(" ")
+  def initialize gender, name, id, link
+    @gender, @name, @id, @link = gender, name, id, link
   end
 
 end
@@ -47,13 +36,13 @@ class Pics
 
   private
   def self.load_pics
-    return if !@@pics.nil?
     @@pics, @@pics_by_gender = [], { :m => [],  :f => [] }
-    Dir[File.join(settings.public_folder, "pics/**.*")].each do |pic_link| 
-      pic = Pic.new(pic_link)
+    File.open(File.join(settings.root, "resources/peeps.csv")).each_line do |l|
+      gender, name, id, link = l.split(",")
+      pic = Pic.new(gender.to_sym, name, id, link)
       @@pics << pic
-      @@pics_by_gender[:m] << pic if pic.link =~ /^m/
-      @@pics_by_gender[:f] << pic if pic.link =~ /^f/
+      @@pics_by_gender[:m] << pic if pic.gender == :m
+      @@pics_by_gender[:f] << pic if pic.gender == :f
     end
   end
 

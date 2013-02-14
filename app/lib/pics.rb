@@ -18,8 +18,7 @@ class Pics
   end
 
   def self.random params
-    picks = @@pics.select { |e| e if !params[:to_exclude].include?(e.id) }
-    picks.shuffle.first
+    @@pics.select { |e| e if !params[:to_exclude].include?(e.id) }.sample
   end
 
   def self.get params

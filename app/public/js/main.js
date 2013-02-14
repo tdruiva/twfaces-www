@@ -15,7 +15,7 @@ $(function () {
 function bindFaces() {
   $('.tw_face').click(function (el) {
 
-    element = el.toElement;
+    element = el.toElement || el.target;
     clickEvent = jQuery._data(element, 'events').click[0];
     $(element).unbind();
 

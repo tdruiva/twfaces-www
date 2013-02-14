@@ -6,7 +6,7 @@ require_relative 'lib/scoreboard'
 
 get '/' do
   if params[:restart] == "now" then
-    clean_cookies(cookies) 
+    clean_cookies(cookies)
     redirect '/'
   end
   erb :main
@@ -33,15 +33,18 @@ get '/quiz' do
 end
 
 post '/guess' do
-  correct = params[:correct]
+  hex = params[:hex]
   guess = params[:guess]
-  ScoreBoard.record_guess correct, guess
 
-  if correct == guess then
+  personToGuess = Crowd.everyone.find { |p| p.tampered_id == hex }
+
+  if personToGuess.id.to_s == guess.to_s then
     cookies[:right] = add_to_string(1, cookies[:right])
     cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], guess)
     redirect '/quiz'
   end
+
+  ScoreBoard.record_guess personToGuess.id, guess
   cookies[:wrong] = add_to_string(1, cookies[:wrong])
   response.headers['correctnes'] = 'n'
 end

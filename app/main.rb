@@ -36,15 +36,15 @@ post '/guess' do
   hex = params[:hex]
   guess = params[:guess]
 
-  personToGuess = Crowd.everyone.find { |p| p.tampered_id == hex }
+  person_to_guess = Crowd.everyone.find { |p| p.tampered_id == hex }
 
-  if personToGuess.id.to_s == guess.to_s then
+  if person_to_guess.id.to_s == guess.to_s then
     cookies[:right] = add_to_string(1, cookies[:right])
     cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], guess)
     redirect '/quiz'
   end
 
-  ScoreBoard.record_guess personToGuess.id, guess
+  ScoreBoard.record_guess person_to_guess.id, guess
   cookies[:wrong] = add_to_string(1, cookies[:wrong])
   response.headers['correctnes'] = 'n'
 end

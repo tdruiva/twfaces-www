@@ -1,12 +1,10 @@
 require 'digest'
 class Person
   attr_reader :gender, :name, :id, :link, :tampered_id
-  @@sha512 = Digest::SHA512.new
-  @@salt = @@sha512.hexdigest 'here is the salt'
 
   def initialize gender, name, id, link
     @gender, @name, @id, @link = gender.to_sym, name, id.to_i, link
-    @tampered_id = @@sha512.hexdigest(id.to_s + @@salt)
+    @tampered_id = sha512.hexdigest(id.to_s + 'here is the salt')
   end
 
   def male?
@@ -15,6 +13,10 @@ class Person
 
   def female?
     @gender == :f
+  end
+
+  def sha512
+    @sha512 ||= Digest::SHA512.new
   end
 
 end

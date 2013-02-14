@@ -4,7 +4,15 @@ class Pic
   attr_reader :gender, :name, :id, :link
 
   def initialize gender, name, id, link
-    @gender, @name, @id, @link = gender, name, id, link
+    @gender, @name, @id, @link = gender.to_sym, name, id, link
+  end
+
+  def male?
+    @gender == :m
+  end
+
+  def female?
+    @gender == :f
   end
 
 end
@@ -39,11 +47,10 @@ class Pics
   def self.load_pics
     @@pics, @@pics_by_gender = [], { :m => [],  :f => [] }
     CSV.foreach(File.join(settings.root, "resources/peeps.csv")) do |row|
-      gender, name, id, link = *row
-      pic = Pic.new(gender.to_sym, name, id, link)
+      pic = Pic.new(*row)
       @@pics << pic
-      @@pics_by_gender[:m] << pic if pic.gender == :m
-      @@pics_by_gender[:f] << pic if pic.gender == :f
+      @@pics_by_gender[:m] << pic if pic.male?
+      @@pics_by_gender[:f] << pic if pic.female?
     end
   end
 

@@ -7,14 +7,6 @@ class Person
     @tampered_id = sha512.hexdigest(id.to_s + 'here is the salt')
   end
 
-  def male?
-    @gender == :m
-  end
-
-  def female?
-    @gender == :f
-  end
-
   def sha512
     @sha512 ||= Digest::SHA512.new
   end

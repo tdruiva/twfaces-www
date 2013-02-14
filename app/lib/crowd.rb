@@ -38,8 +38,7 @@ class Crowd
     CSV.foreach(File.join(settings.root, "resources/peeps.csv")) do |row|
       person = Person.new(*row)
       @@people << person
-      @@people_by_gender[:m] << person if person.male?
-      @@people_by_gender[:f] << person if person.female?
+      @@people_by_gender[person.gender] << person
     end
   end
 

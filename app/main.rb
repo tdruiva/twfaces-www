@@ -1,7 +1,7 @@
 require 'sinatra'
 require 'sinatra/cookies'
 
-require_relative 'lib/pics'
+require_relative 'lib/crowd'
 require_relative 'lib/scoreboard'
 
 get '/' do
@@ -12,12 +12,12 @@ get '/quiz' do
   cookies[:to_exclude] ||= ""
   response.headers['correctnes'] = 'y'
 
-  @total = Pics.total
+  @total = Crowd.total
   @progress = cookies[:right].to_i
   return "<h1>Congrats! Game over!</h1>" if @progress >= @total #just in case...
 
-  @to_guess = Pics.random(:to_exclude => to_array(cookies[:to_exclude]))
-  @pics = (Pics.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle
+  @to_guess = Crowd.random(:to_exclude => to_array(cookies[:to_exclude]))
+  @pics = (Crowd.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle
 
   erb :quiz
 end

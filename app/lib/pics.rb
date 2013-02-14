@@ -4,7 +4,7 @@ class Pic
   attr_reader :gender, :name, :id, :link
 
   def initialize gender, name, id, link
-    @gender, @name, @id, @link = gender.to_sym, name, id, link
+    @gender, @name, @id, @link = gender.to_sym, name, id.to_i, link
   end
 
   def male?
@@ -26,6 +26,7 @@ class Pics
   end
 
   def self.random params
+    require 'debugger';debugger
     @@pics.select { |e| e if !params[:to_exclude].include?(e.id) }.sample
   end
 

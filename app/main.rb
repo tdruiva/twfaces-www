@@ -2,6 +2,7 @@ require 'sinatra'
 require 'sinatra/cookies'
 
 require_relative 'lib/pics'
+require_relative 'lib/scoreboard'
 
 get '/' do
   erb :main

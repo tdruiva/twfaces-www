@@ -5,7 +5,17 @@ require_relative 'lib/crowd'
 require_relative 'lib/scoreboard'
 
 get '/' do
+  if params[:restart] == "now" then
+    clean_cookies(cookies) 
+    redirect '/'
+  end
   erb :main
+end
+
+def clean_cookies cookies
+  cookies[:right] = "0"
+  cookies[:wrong] = "0"
+  cookies[:to_exclude] = ""
 end
 
 get '/quiz' do
@@ -14,7 +24,7 @@ get '/quiz' do
 
   @total = Crowd.total
   @progress = cookies[:right].to_i
-  return "<h1>Congrats! Game over!</h1>" if @progress >= @total #just in case...
+  return erb :game_over if @progress >= @total #just in case...
 
   @to_guess = Crowd.random(:to_exclude => to_array(cookies[:to_exclude]))
   @pics = (Crowd.get(:gender => @to_guess.gender, :quantity => 3, :pick => @to_guess) << @to_guess).shuffle

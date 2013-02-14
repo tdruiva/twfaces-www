@@ -40,3 +40,15 @@ body {
   transform: rotate(-5deg);
   border: #FEFF30 solid 12px;
 }
+
+#restart {
+  font-size: 30px;
+  padding: 5px;
+  display: inline-block;
+  margin: 10px 0px 20px 0px;
+  border-radius: 5px;
+  border: green solid 1px;
+  background: green;
+  text-decoration: none;
+  color: black;
+}

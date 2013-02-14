@@ -10,7 +10,7 @@ end
 
 get '/quiz' do
   cookies[:to_exclude] ||= ""
-  response.headers['correctnes'] = params[:correct] if !params[:correct].nil?
+  response.headers['correctnes'] = 'y'
 
   @total = Pics.total
   @progress = cookies[:right].to_i
@@ -30,10 +30,10 @@ post '/guess' do
   if correct == guess then
     cookies[:right] = add_to_string(1, cookies[:right])
     cookies[:to_exclude] = add_to_exclude_to_list(cookies[:to_exclude], guess)
-    redirect '/quiz?correct=y'
+    redirect '/quiz'
   end
   cookies[:wrong] = add_to_string(1, cookies[:wrong])
-  redirect '/quiz?correct=n'
+  response.headers['correctnes'] = 'n'
 end
 
 def add_to_exclude_to_list(list, id)

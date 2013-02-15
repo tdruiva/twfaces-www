@@ -16,13 +16,10 @@ class Crowd
   def self.get params
     gender, quantity = params[:gender], params[:quantity]
     picks = []
-    same_gender_picks = @@people_by_gender[gender].dup
-    same_gender_picks.delete_if { |e| e.id == params[:pick].id }
+    same_gender_picks = @@people_by_gender[gender].reject { |e| e.id == params[:pick].id }
     quantity.times do
-      shuffled = same_gender_picks.shuffle
-      pick = shuffled.shift
-      picks.push(pick)
-      same_gender_picks = shuffled
+      same_gender_picks.shuffle!
+      picks <<  same_gender_picks.shift
     end
     picks
   end

@@ -33,12 +33,21 @@ class ScoreBoard
     end
 
     def guesses_for(peep)
-      self.redis.hgetall(peep)
+      self.explain_guesses self.redis.hgetall(peep)
+    end
+
+    def explain_guesses(guesses)
+      guesses.reduce({}) do |memo, pair|
+        peep = Crowd.find pair.first
+        name = peep.nil? ? pair.first : peep.name
+        memo[name] = pair.last
+        memo
+      end
     end
 
     def simplify_guesses(guesses)
-      id = self.id_from_guesses(guesses)
-      peep = Crowd.everyone.find { |p| p.id.to_s == id.to_s }
+      id = self.id_from_guesses guesses
+      peep = Crowd.find id
       {
         name: peep.nil? ? id : peep.name,
         ratio: self.ratio_for_guesses(guesses)

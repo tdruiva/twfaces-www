@@ -24,8 +24,13 @@ class Crowd
     @@people
   end
 
+  def self.find(peep_id)
+    self.everyone.find { |p| p.id.to_s == peep_id.to_s }
+  end
+
   private
   def self.load_data
+    return if @@people
     @@people, @@people_by_gender = [], { :m => [],  :f => [] }
     CSV.foreach(File.join(settings.root, "resources/peeps.csv")) do |row|
       person = Person.new(*row)

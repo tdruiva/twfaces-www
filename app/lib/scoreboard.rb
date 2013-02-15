@@ -27,6 +27,11 @@ class ScoreBoard
       all_sorted.reverse.map { |g| self.simplify_guesses g }[0...20]
     end
 
+    def save_backup
+      json_content = ScoreBoard.all_guesses.to_s.gsub('=>', ': ')
+      File.write "backup #{Time.now.utc}.json", json_content
+    end
+
     def guesses_for(peep)
       self.redis.hgetall(peep)
     end

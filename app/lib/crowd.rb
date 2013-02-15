@@ -15,13 +15,8 @@ class Crowd
 
   def self.get params
     gender, quantity = params[:gender], params[:quantity]
-    picks = []
     same_gender_picks = @@people_by_gender[gender].reject { |e| e.id == params[:pick].id }
-    quantity.times do
-      same_gender_picks.shuffle!
-      picks <<  same_gender_picks.shift
-    end
-    picks
+    same_gender_picks.sample quantity
   end
 
   def self.everyone

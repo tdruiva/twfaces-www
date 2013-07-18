@@ -47,8 +47,19 @@ angular.module('facesOfThoughtworksQuizApp.service', ['ngCookies']).
 
 		this.initialize();
 	}]).
-	service('thougthworkers',[function(){
-		
+	service('thoughtworkers',['$q', '$http', function($q, $http){
+		var deferred = $q.defer();
+		this.query = function(){
+			$http.get('api/thoughtworkers.json').
+				success(function(data, status, headers, config){
+					deferred.resolve(data);
+				}).
+				error(function(data, status, headers, config){
+					deferred.reject(status, headers)
+				});
+
+			return deferred.promise;	
+		}
 	}]).	
 	service('game', ['$cookieStore', 'statistics', function ($cookieStore, statistics) {
 		

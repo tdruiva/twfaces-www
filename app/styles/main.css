@@ -1,0 +1,34 @@
+@font-face {
+  font-family: 'marydale';
+  src: url('/fonts/Marydale.ttf');
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'marydale';
+}
+
+body {  
+  text-align: center;
+  background-color: #EEFFEE;
+  background-image: url(/images/background.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-top: 300px;
+}
+
+.tw_face {  
+  margin: 10px;
+  /*border: #FEFF87 solid 10px;  */
+  display: inline-block;  
+}
+
+.tw_face img {
+	width: 220px;
+	height: 220px;
+}

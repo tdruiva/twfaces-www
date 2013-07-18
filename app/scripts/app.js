@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('facesOfThoughtworksQuizApp', [])
+angular.module('facesOfThoughtworksQuizApp', ['facesOfThoughtworksQuizApp.service'])
   .config(function ($routeProvider) {
     
     $routeProvider

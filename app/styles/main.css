@@ -24,7 +24,7 @@ body {
 
 .tw_face {  
   margin: 10px;
-  /*border: #FEFF87 solid 10px;  */
+  cursor: pointer;  
   display: inline-block;  
 }
 

@@ -1,5 +1,16 @@
 <div>
-	<span class="tw_face" ng-repeat="person in thoughtworkers">
-		<img class="person-avatar" ng-src="{{person.picture}}"></img>
+	<span class="tw_face animated" ng-repeat="person in thoughtworkers" 
+		ng-animate="{enter: 'bounceIn', leave: 'bounceOut'}">
+		<div ng-click="tryPerson(person)">
+			<img class="person-avatar" ng-src="{{person.picture}}"></img>
+		</div>		
 	</span>
+	
+	<div>
+		{{game | json}}
+	</div>
+	<div>
+		<a ng-href="#" ng-click="game.reset()">reset</a>
+	</div>
 </div>  
+

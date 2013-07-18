@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('facesOfThoughtworksQuizApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', ['$scope', 'game', function ($scope, game) {
+
+    $scope.game = game;
 
     $scope.thoughtworkers = [
     {
@@ -18,4 +20,8 @@ angular.module('facesOfThoughtworksQuizApp')
     }
     ];
 
-  });
+    $scope.tryPerson = function(person){        
+        game.mistake();
+    }
+
+  }]);

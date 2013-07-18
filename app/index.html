@@ -12,7 +12,7 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="bower_components/animate.css">
+        <link rel="stylesheet" href="bower_components/animate.css/animate.css">
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
 </head>
@@ -38,11 +38,14 @@
       s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
 
-    <script src="bower_components/angular/angular.js"></script>
+    <!-- <script src="bower_components/angular/angular.js"></script> -->    
+    <script src="http://code.angularjs.org/1.1.5/angular.js"></script>
+    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
+    <script src="scripts/services/main.js"></script>
     <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->

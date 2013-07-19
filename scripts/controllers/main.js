@@ -3,7 +3,7 @@
 angular.module('facesQuizApp')
   .controller('MainCtrl', ['$scope', 'Game', 'thoughtworkers', function ($scope, Game, thoughtworkers) {
 
-    var mistakes = [];
+    $scope.mistakes = {};
 
     $scope.loading = true;
 
@@ -12,6 +12,7 @@ angular.module('facesQuizApp')
     	function(people){
     		$scope.game = new Game(people);
     		$scope.loading = false;
+            resetClasses();
     	},
     	function(){
 			$scope.loading = false;
@@ -20,26 +21,27 @@ angular.module('facesQuizApp')
 
     $scope.guess = function(person){
 
-        if( $scope.game.guessPerson(person) ){
-            mistakes.push(person);
+        if( $scope.game.guessPerson(person) === false){
+            if(!person.mistakeAnimation)
+                person.mistakeAnimation = getMissAnimation();
         } else {
-            mistakes = [];
+            resetClasses();
         }
-    }
-
-    $scope.isMistake = function(person){
-        return mistakes.indexOf(person) >= 0;
     }
 
     $scope.reset = function(){
         $scope.game = new Game(thoughtworkers);
     }
 
-    $scope.getMissAnimation = function(person){
-        if( $scope.isMistake(person) === false) return;
+    var resetClasses = function(){
+        $scope.game.challengeGroup.each(function(person){
+            person.mistake = false;
+        });
+    }
+    var getMissAnimation = function(){
 
         var animations = ['hinge', 'shake', 'fadeOutUp']
-        return 'miss' + animations[parseInt(Math.random() * animations.length)];
+        return 'miss ' + animations[parseInt(Math.random() * animations.length)];
     }
 
   }]);

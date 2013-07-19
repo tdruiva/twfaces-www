@@ -18,7 +18,7 @@
 
 			<div class="tw_face"
 					 ng-click="guess(person)"
-					 ng-class="getMissAnimation(person)"
+					 ng-class="person.mistakeAnimation"
 					 ng-repeat="person in game.challengeGroup.items"
 					 style="background-image: url(pics/{{person.picture}})">
 			</div>

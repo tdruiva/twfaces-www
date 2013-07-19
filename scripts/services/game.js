@@ -32,7 +32,7 @@ angular.module('facesQuizApp.service').
 			} else {
 				this.mistake();
 			}
-			return missed;
+			return !missed;
 		};
 
 		//private

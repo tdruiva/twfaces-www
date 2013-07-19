@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'marydale';
-  src: url('fonts/Marydale.ttf');
+  src: url('../fonts/Marydale.ttf');
 }
 
 * {
@@ -19,7 +19,7 @@ body {
   max-width: 1000px;
   margin: auto;
   background-color: #EEFFEE;
-  background-image: url(images/background.png);
+  background-image: url(../images/background.png);
   background-position: center top;
   background-repeat: no-repeat;
   padding-top: 250px;

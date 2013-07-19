@@ -35,9 +35,11 @@ angular.module('facesQuizApp')
         $scope.game = new Game(thoughtworkers);
     }
 
-    $scope.getMissAnimation = function(){
+    $scope.getMissAnimation = function(person){
+        if( $scope.isMistake(person) === false) return;
+
         var animations = ['hinge', 'shake', 'fadeOutUp']
-        return animations[parseInt(Math.random() * animations.length)];
+        return 'miss' + animations[parseInt(Math.random() * animations.length)];
     }
 
   }]);

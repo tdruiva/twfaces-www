@@ -70,6 +70,7 @@ angular.module('facesQuizApp.service').
 			if(this.challengeGroup.notContains( this.challengePerson )){
 				this.challengeGroup.remove( this.challengeGroup.getLast() );
 				this.challengeGroup.add( this.challengePerson );
+				this.challengeGroup.shuffle();
 			}
 		};
 

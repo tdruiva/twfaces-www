@@ -3,7 +3,7 @@
 describe('Controller: MainCtrl', function () {
 
   // load the controller's module
-  beforeEach(module('facesOfThoughtworksQuizApp'));
+  beforeEach(module('facesQuizApp'));
 
   var MainCtrl,
     scope;
@@ -16,7 +16,7 @@ describe('Controller: MainCtrl', function () {
     });
   }));
 
-  it('should attach a list of thoughtworkers to the scope', function () {
-    expect(scope.thoughtworkers.length).toBe(4);
-  });
+  // it('should attach a list of thoughtworkers to the scope', function () {
+  //   expect(scope.thoughtworkers.length).toBe(4);
+  // });
 });

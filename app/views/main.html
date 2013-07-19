@@ -1,17 +1,36 @@
 <div>
-	<div>
-		{{game | json}}
+	<h2 ng-show="game.ended">Parabéns voce descobriu o nome de todos os Thoughtworkers =)</h2>
+
+	<div ng-hide="failure || game.ended || loading">
+
+		<div class="tw_info">
+			<h2 class="tw_who">Who is <span class="tw_name" ng-bind="game.challengePerson.name"></span> ?</h2>
+
+			<h2 class="tw_stats">
+				Points
+				<span class="tw_points" ng-bind="game.statistics.score"></span>
+				<span class="tw_slash">/</span>
+				<span class="tw_mistakes" ng-bind="game.statistics.mistakes"></span>
+			</h2>
+		</div>
+
+		<div class="tw_faces">
+
+			<div class="tw_face"
+					 ng-click="guess(person)"
+					 ng-class="{'miss': isMistake(person), '{{getMissAnimation()}}': isMistake(person)}"
+					 ng-repeat="person in game.challengeGroup.items"
+					 style="background-image: url({{person.picture}})">
+			</div>
+		</div>
 	</div>
-	
-	<span class="tw_face animated" ng-repeat="person in thoughtworkers" 
-		ng-animate="{enter: 'bounceIn', leave: 'bounceOut'}">
-		<div ng-click="tryPerson(person)">
-			<img class="person-avatar" ng-src="{{person.picture}}"></img>
-		</div>		
-	</span>
-		
-	<div>
-		<a ng-href="#" ng-click="game.reset()">reset</a>
+
+	<div ng-hide="loading">
+		<a class="tw_reset" ng-href="#" ng-click="game.reset()">Reset Game</a>
 	</div>
-</div>  
+
+	<h2 ng-show="loading">Loading</h2>
+	<h2 ng-show="failure">Something went wrong when loading players</h2>
+
+</div>
 

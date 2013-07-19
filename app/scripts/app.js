@@ -1,8 +1,11 @@
 'use strict';
 
-angular.module('facesOfThoughtworksQuizApp', ['facesOfThoughtworksQuizApp.service'])
+//module definition
+angular.module('facesQuizApp.service', ['ngCookies', 'collection']);
+
+angular.module('facesQuizApp', ['facesQuizApp.service'])
   .config(function ($routeProvider) {
-    
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -11,5 +14,5 @@ angular.module('facesOfThoughtworksQuizApp', ['facesOfThoughtworksQuizApp.servic
       .otherwise({
         redirectTo: '/'
       });
-      
+
   });

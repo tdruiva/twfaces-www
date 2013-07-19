@@ -7,28 +7,123 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
+  color: #223F19;
 }
 
 html {
   font-family: 'marydale';
 }
 
-body {  
-  text-align: center;
+body {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
   background-color: #EEFFEE;
   background-image: url(/images/background.png);
   background-position: center top;
   background-repeat: no-repeat;
-  padding-top: 300px;
+  padding-top: 250px;
 }
 
-.tw_face {  
-  margin: 10px;
-  cursor: pointer;  
-  display: inline-block;  
+.tw_faces {
+  clear: both;
 }
 
-.tw_face img {
-	width: 220px;
-	height: 220px;
+.tw_face {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+
+  width: 210px;
+  height: 210px;
+
+  margin: 20px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 99em;
+  -moz-border-radius: 99em;
+  border-radius: 99em;
+  border: 5px solid #223F19;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.6);
+}
+
+.tw_face:hover {
+  border: 5px solid #667F6A;
+  /*-webkit-transform: scale(1.02);*/
+}
+
+.tw_face.miss.fadeOutUp::after {
+  content: url(../images/death.png);
+  position: absolute;
+  background: black;
+  border-radius: 99em;
+  opacity: .6;
+}
+
+.tw_face.miss.fadeOutUp {
+  -webkit-animation-duration: 3s;
+     -moz-animation-duration: 3s;
+       -o-animation-duration: 3s;
+          animation-duration: 3s;
+  -webkit-animation-fill-mode: both;
+     -moz-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.tw_face.miss {
+  border: 5px solid #DC7F79;
+
+  -webkit-animation-duration: 1s;
+     -moz-animation-duration: 1s;
+       -o-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: both;
+     -moz-animation-fill-mode: both;
+       -o-animation-fill-mode: both;
+          animation-fill-mode: both;
+}
+.tw_face.miss::before {
+
+}
+.tw_face.miss::after {
+  content: " ";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: black;
+  border-radius: 99em;
+  opacity: .6;
+  -moz-box-shadow:    inset 0 0 20px #000000;
+   -webkit-box-shadow: inset 0 0 20px #000000;
+   box-shadow:         inset 0 0 20px #000000;
+}
+
+.tw_name {
+  color: #E4D17D;
+}
+
+.tw_info {
+  margin: 0 10px;
+}
+
+.tw_who {
+  font-size: 32px;
+  float: left;
+}
+.tw_stats {
+  float: right;
+}
+
+.tw_reset {
+  text-align: center;
+  display: block;
+}
+
+.tw_points {
+  color: #E4D17D;
+}
+
+.tw_mistakes {
+  color: #F78E88;
 }

@@ -11,12 +11,14 @@
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
-        <!-- build:css({.tmp,app}) styles/main.css -->
-        <link rel="stylesheet" href="bower_components/animate.css/animate.css">
-        <link rel="stylesheet" href="styles/main.css">
-        <!-- endbuild -->
+    <!-- <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet"> -->
+    <!-- build:css({.tmp,app}) styles/main.css -->
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
+
 </head>
-  <body ng-app="facesOfThoughtworksQuizApp">
+  <body ng-app="facesQuizApp">
     <!--[if lt IE 7]>
       <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
     <![endif]-->
@@ -24,9 +26,9 @@
     <!--[if lt IE 9]>
       <script src="bower_components/es5-shim/es5-shim.js"></script>
       <script src="bower_components/json3/lib/json3.min.js"></script>
-    <![endif]-->    
+    <![endif]-->
 
-    <div class="container" ng-view=""></div>
+    <div ng-view=""></div>
 
   </body>
 
@@ -38,14 +40,18 @@
       s.parentNode.insertBefore(g,s)}(document,'script'));
     </script>
 
-    <!-- <script src="bower_components/angular/angular.js"></script> -->    
+    <!-- <script src="bower_components/angular/angular.js"></script> -->
     <script src="http://code.angularjs.org/1.1.5/angular.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
     <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/services/main.js"></script>
+    <script src="scripts/services/collection.js"></script>
+    <script src="scripts/services/game.js"></script>
+    <script src="scripts/services/crowd.js"></script>
+    <script src="scripts/services/statistics.js"></script>
+    <script src="scripts/services/thoughtworkers.js"></script>
     <!-- endbuild -->
 
         <!-- build:js scripts/modules.js -->

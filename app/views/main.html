@@ -20,7 +20,7 @@
 					 ng-click="guess(person)"
 					 ng-class="{'miss': isMistake(person), '{{getMissAnimation()}}': isMistake(person)}"
 					 ng-repeat="person in game.challengeGroup.items"
-					 style="background-image: url({{person.picture}})">
+					 style="background-image: url(pics/{{person.picture}})">
 			</div>
 		</div>
 	</div>

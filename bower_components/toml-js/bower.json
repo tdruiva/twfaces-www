@@ -1,0 +1,20 @@
+{
+  "name": "toml-js",
+  "version": "0.0.0",
+  "main": "lib/toml.js",
+  "ignore": [
+    "test",
+    "public",
+    "node_modules"
+  ],
+  "gitHead": "80932266bbc94efa817b587e55342045ff98c793",
+  "readme": "# Toml-js [![Build Status](https://secure.travis-ci.org/alexanderbeletsky/toml-js.png?branch=master)](http://travis-ci.org/alexanderbeletsky/toml-js)\r\n\r\nVery slim, very fast, no dependencies, [TOML](https://github.com/mojombo/toml) parser implementation. Works both browser (plain and AMD) and node.js.\r\n\r\n## Why?\r\n\r\n[TOML](https://github.com/mojombo/toml) is a very convenient, INI-like storage file format, suitable for many types of applications and utilities.\r\n\r\n## Running on browser\r\n\r\nInstall bower component,\r\n\r\n```\r\n    bower install toml-js\r\n```\r\n\r\nAdd reference,\r\n\r\n```html\r\n    <script type=\"text/javascript\" src=\"components/toml-js/toml.js\"></script>\r\n```\r\n\r\nor AMD,\r\n\r\n```html\r\n    define(['libs/toml'], function (toml) {\r\n\r\n    });\r\n```\r\n\r\nRun parser,\r\n\r\n```js\r\n    $.get('/config/settings.toml', function (data) {\r\n        var config = toml.parse(data);\r\n        console.log(config);\r\n    });\r\n```\r\n\r\n## Running on node\r\n\r\nInstall npm package\r\n\r\n```\r\n    npm install toml-js\r\n```\r\n\r\nRun parser,\r\n\r\n```js\r\n    var fs = require('fs');\r\n    var toml = require('toml-js');\r\n\r\n    fs.readFile('example.toml', function (err, data) {\r\n        var parsed = toml.parse(data);\r\n        console.log(parsed);\r\n    });\r\n```\r\n\r\n## Contributing\r\n\r\nYou are very welcome. Please fork, update [tests](/test/spec/toml.spec.js), apply fix, build and submit the pull request.\r\n\r\n## Supported version\r\n\r\nSupport provided for [v0.1.0](https://github.com/mojombo/toml/blob/master/versions/toml-v0.1.0.md) version of TOML (latest up to 25 Feb 2013).\r\n\r\n## Credits\r\n\r\n* @rossipedia - [toml-net](https://github.com/rossipedia/toml-net) for well-rounded test suite.\r\n\r\n# Licence (MIT License)\r\n\r\nCopyright (c) 2013 Alexander Beletsky\r\n\r\nPermission is hereby granted, free of charge, to any person obtaining a copy\r\nof this software and associated documentation files (the \"Software\"), to deal\r\nin the Software without restriction, including without limitation the rights\r\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\r\ncopies of the Software, and to permit persons to whom the Software is\r\nfurnished to do so, subject to the following conditions:\r\n\r\nThe above copyright notice and this permission notice shall be included in\r\nall copies or substantial portions of the Software.\r\n\r\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\r\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\r\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\r\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\r\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\r\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN\r\nTHE SOFTWARE.\r\n",
+  "readmeFilename": "README.md",
+  "_id": "toml-js@0.0.5",
+  "description": "Very slim, very fast, no dependencies, [TOML](https://github.com/mojombo/toml) parser implementation. Works both browser (plain and AMD) and node.js.",
+  "commit": "80932266bbc94efa817b587e55342045ff98c793",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/alexanderbeletsky/toml-js.git"
+  }
+}

@@ -16,11 +16,7 @@
 
 		<div class="tw_faces">
 
-			<div class="tw_face"
-					 ng-click="guess(person)"
-					 ng-class="person.mistakeAnimation"
-					 ng-repeat="person in game.challengeGroup.items"
-					 style="background-image: url(pics/{{person.picture}})">
+			<div class="tw_face animated" ng-click="guess(person, $index)" ng-class="mistakesAnimationAt($index)" ng-repeat="person in game.challengeGroup.items" style="background-image: url(pics/{{person.picture}})">
 			</div>
 		</div>
 	</div>
@@ -33,4 +29,3 @@
 	<h2 ng-show="failure">Something went wrong when loading players</h2>
 
 </div>
-

@@ -16,13 +16,18 @@
 
 		<div class="tw_faces">
 
-			<div class="tw_face animated" ng-click="guess(person, $index)" ng-class="mistakesAnimationAt($index)" ng-repeat="person in game.challengeGroup.items" style="background-image: url(pics/{{person.picture}})">
+			<div class="tw_face_wrapper animated flipInY" ng-repeat="person in game.challengeGroup.items">
+
+				<div class="tw_face animated" ng-click="guess(person, $index)" ng-class="mistakesAnimationAt($index)" style="background-image: url(pics/{{person.picture}})">
+				</div>
+
 			</div>
+
 		</div>
 	</div>
 
 	<div ng-hide="loading">
-		<a class="tw_reset" ng-href="#" ng-click="game.reset()">Reset Game</a>
+		<a class="tw_reset" ng-click="game.reset()">Reset Game</a>
 	</div>
 
 	<h2 ng-show="loading">Loading</h2>

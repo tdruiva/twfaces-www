@@ -14,15 +14,11 @@
 			</h2>
 		</div>
 
-		<div class="tw_faces ">
+		<div class="tw_faces">
 
-			<div class="tw_face_wrapper animated flipInY"
-					 ng-repeat="person in game.challengeGroup.items">
+			<div class="tw_face_wrapper animated flipInY" ng-repeat="person in game.challengeGroup.items">
 
-				<div class="tw_face animated"
-					 ng-click="guess(person, $index)"
-					 ng-class="mistakesAnimationAt($index)"
-					 style="background-image: url(pics/{{person.picture}})">
+				<div class="tw_face animated" ng-click="guess(person, $index)" ng-class="mistakesAnimationAt($index)" style="background-image: url(pics/{{person.picture}})">
 				</div>
 
 			</div>

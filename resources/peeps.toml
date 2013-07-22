@@ -1,0 +1,46 @@
+# Hello everybody, these are the Thoughtworkers from Brazil =)
+# Help to keep it updated
+# More information about TOML markup: https://github.com/mojombo/toml
+
+
+[twers]
+
+	[twers.tfelix]
+	name = "Thiago Felix"
+	gender = "m"
+	picture = "1.jpg"
+
+	[twers.damorin]
+	name = "Daniel Amorin"
+	gender = "m"
+	picture = "2.jpg"
+
+	[twers.xdoctor]
+	name = "Doctor X"
+	gender = "m"
+	picture = "3.jpg"
+
+	[twers.spiderman]
+	name = "Spider Man"
+	gender = "m"
+	picture = "4.jpg"
+
+	[twers.chunglee]
+	name = "Chung Lee"
+	gender = "f"
+	picture = "5.jpg"
+
+	[twers.jgrey]
+	name = "Jean Grey"
+	gender = "female"
+	picture = "6.jpg"
+
+	[twers.storm]
+	name = "Storm"
+	gender = "female"
+	picture = "7.jpg"
+
+	[twers.rogue]
+	name = "Rogue"
+	gender = "female"
+	picture = "8.jpg"

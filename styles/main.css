@@ -1,0 +1,188 @@
+@font-face {
+  font-family: 'marydale';
+  src: url('../fonts/Marydale.ttf');
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  color: #223F19;
+  text-align: center;
+}
+
+html {
+  font-family: 'marydale';
+}
+
+body {
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  background-color: #EEFFEE;
+}
+
+.app-logo {
+  max-width: 100%;
+}
+
+.tw_faces {
+  clear: both;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.tw_face_wrapper {
+  position: relative;
+  width: 210px;
+  height: 210px;
+  margin: 20px;
+  display: inline-block;
+}
+
+.tw_face_wrapper.flipInY:nth-of-type(1) {
+  -webkit-animation-delay: 0.1s;
+     -moz-animation-delay: 0.1s;
+       -o-animation-delay: 0.1s;
+          animation-delay: 0.1s;
+
+}
+.tw_face_wrapper.flipInY:nth-of-type(2){
+  -webkit-animation-delay: 0.15s;
+     -moz-animation-delay: 0.15s;
+       -o-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+
+}
+.tw_face_wrapper.flipInY:nth-of-type(3){
+  -webkit-animation-delay: 0.2s;
+     -moz-animation-delay: 0.2s;
+       -o-animation-delay: 0.2s;
+          animation-delay: 0.2s;
+
+}
+.tw_face_wrapper.flipInY:nth-of-type(4){
+  -webkit-animation-delay: 0.25s;
+     -moz-animation-delay: 0.25s;
+       -o-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+
+.tw_face {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 5px solid #223F19;
+
+  -webkit-transition: 0.5s border;
+     -moz-transition: 0.5s border;
+          transition: 0.5s border;
+
+  -webkit-box-shadow: 0 3px 2px rgba(0, 0, 0, 1);
+     -moz-box-shadow: 0 3px 2px rgba(0, 0, 0, 1);
+          box-shadow: 0 3px 2px rgba(0, 0, 0, 1);
+
+  -webkit-border-radius: 99em;
+     -moz-border-radius: 99em;
+          border-radius: 99em;
+
+}
+
+.tw_face:hover {
+  border: 5px solid #E4D17D;
+}
+
+.tw_face.miss {
+  -webkit-transition: 0s border;
+     -moz-transition: 0s border;
+          transition: 0s border;
+  border: 5px solid #FF4444;
+  opacity: .9;
+}
+
+.tw_face.miss::after {
+  content: "X";
+  color: #FF4444;
+  position: absolute;
+  font-size: 90px;
+  left: 75px;
+  top: 25px;
+}
+
+.tw_face.miss::before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  border-radius: 99em;
+  opacity: .7;
+
+  -webkit-box-shadow: inset 0 0 20px #000000;
+     -moz-box-shadow: inset 0 0 20px #000000;
+          box-shadow: inset 0 0 20px #000000;
+}
+
+.tw_face.miss.fadeOutUp {
+  -webkit-animation-duration: 3s;
+     -moz-animation-duration: 3s;
+       -o-animation-duration: 3s;
+          animation-duration: 3s;
+}
+
+.tw_name {
+  color: #E4D17D;
+}
+
+.tw_info {
+  margin: 0 10px;
+}
+
+.tw_who {
+  font-size: 32px;
+}
+.tw_stats {
+}
+
+.tw_reset {
+   font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  cursor: pointer;
+  text-align: center;
+  display: inline-block;
+  padding: 10px;
+  background: #11320D;
+  border: #0F100F;
+  border-radius: 10px;
+  color: #E4D17D;
+}
+
+.tw_reset:hover {
+  background: #55774F;
+}
+
+.tw_points {
+  color: #E4D17D;
+}
+
+.tw_mistakes {
+  color: #FF4444;
+}
+
+
+
+@media screen and (max-width: 580px) {
+  .tw_face_wrapper {
+    width: 150px;
+    height: 150px;
+    margin: 15px 15px 15px;
+  }
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none;
+}

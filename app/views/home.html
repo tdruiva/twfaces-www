@@ -1,0 +1,23 @@
+<div class="home-view">
+	<header>
+		<img class="tw-faces-logo" src="images/twfaces.png" height="250">
+	</header>
+
+	<input type="text" autofocus class="input-big input-search"
+					 ng-model="search"
+					 placeholder="Choose an Office">
+
+	<ul class="home-list">
+		<li class="fl w50" ng-repeat="office in model.offices.items | filter:search">
+
+			<div class="flag" style="background-image: url({{office.flag}})"></div>
+
+			<a class="no-link" href="#/game/{{office.slug}}">
+				<h2 class="fl" ng-bind="office.name"></h2>
+			</a>
+
+		</li>
+	</ul>
+
+
+</div>

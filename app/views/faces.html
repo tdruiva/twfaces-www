@@ -1,0 +1,11 @@
+<div class="game-score-faces clearfix" tw-scroll-to="foundIndex">
+	<div class="mini-face"
+			 ng-class="cssMiniFaceAt($index)"
+			 ng-repeat="person in game.people.all.items">
+
+		<div class="mini-face-image animated pulse"
+				 ng-show="cssMiniFaceAt($index)"
+				 style="background-image: url({{person.picture}})"></div>
+
+	</div>
+</div>

@@ -1,0 +1,85 @@
+<div class="game-view clearfix">
+
+	<div class="game-score-view">
+		<h2 class="game-score-office" ng-bind="office.name"></h2>
+		<div class="game-score-faces clearfix" tw-scroll-to="foundIndex">
+			<div class="mini-face"
+					 ng-class="cssMiniFaceAt($index)"
+					 ng-repeat="person in game.people.all.items">
+
+				<div class="mini-face-image animated pulse"
+						 ng-show="cssMiniFaceAt($index)"
+						 style="background-image: url({{person.picture}})"></div>
+
+			</div>
+		</div>
+
+		<div class="game-statistics">
+			<div class="game-statistics-item clearfix">
+				<h2 class="fl">Score</h2>
+				<h2 class="fr game-statistics-percentage"
+						ng-bind="game.statistics.percentage | number:0">
+				</h2>
+			</div>
+			<div class="game-statistics-item clearfix">
+				<span class="fl">Right</span>
+				<span class="fr success-text" ng-bind="game.statistics.score"></span>
+			</div>
+			<div class="game-statistics-item clearfix">
+				<span class="fl">Wrong</span>
+				<span class="fr error-text" ng-bind="game.statistics.mistakes"></span>
+			</div>
+		</div>
+		<div class="game-score-action clearfix">
+			<a class="btn btn-orange fl" ng-click="reset()">Reset</a>
+			<a class="btn btn-gray fr" href="#">Leave</a>
+		</div>
+	</div>
+
+	<div class="game-board-view">
+
+		<header>
+			<img class="tw-faces-logo" src="images/twfaces.png">
+		</header>
+
+		<h2 ng-show="loading">Loading</h2>
+
+		<div ng-show="failure">
+			<h2 class="tw_who">Something went wrong when loading players</h2>
+			<a class="btn btn-gray fr" href="#">Leave</a>
+		</div>
+
+		<div class="game-board">
+
+			<h2 class="tw_contratulation" ng-show="game.ended">
+				Congratulation! You know everyone at <b class="tw_name">{{office.name}}</b>
+			</h2>
+
+			<div ng-hide="failure || game.ended">
+
+				<div class="tw_faces clearfix">
+
+					<div class="tw_face_wrapper animated flipInY"
+							 ng-click="guess(person, $index)"
+							 ng-repeat="person in game.challengeGroup.items">
+
+						<div class="tw_face animated"
+							 ng-class="cssFaceAt($index)"
+							 style="background-image: url({{person.picture}})">
+						</div>
+
+					</div>
+
+				</div>
+
+				<div class="tw_info" ng-hide="failure">
+					<h2 class="tw_who">Who is <span class="tw_name" ng-bind="game.challengePerson.name"></span> ?</h2>
+				</div>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</div>

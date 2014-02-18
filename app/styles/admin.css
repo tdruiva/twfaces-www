@@ -1,0 +1,51 @@
+.admin-people-view {
+	padding: 30px 60px;
+	display: block;
+}
+
+.admin-people-view .title {
+	margin-top: -2px;
+	margin-bottom: 7px;
+	font-family: Arial-BoldMT;
+	font-size: 20px;
+	color: #000000;
+	line-height: 23px;
+	letter-spacing: 1px;
+}
+
+.admin-people-view header {
+	display: block;
+}
+
+.admin-people-view > div {
+	margin-top: 50px;
+	display: block;
+}
+
+.admin-people-view .home-list {
+	max-height: 450px;
+}
+
+.admin-people-view .home-list li {
+	display: block;
+}
+
+.people-picture {
+	position: relative;
+}
+
+.people-picture .btn {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+.admin-people-view .icon-male,
+.admin-people-view .icon-female {
+	font-size: 60px;
+	color: #B7B7B5;
+}
+
+.admin-people-view .admin-actions{
+	margin: 10px 0;
+}

@@ -1,0 +1,35 @@
+[
+	{"name":"Perth", "flag":"flags/AU.png","slug":"perth"},
+	{"name":"Brisbane", "flag":"flags/AU.png","slug":"brisbane"},
+	{"name":"Melbourne", "flag":"flags/AU.png","slug":"melbourne"},
+	{"name":"Sydney", "flag":"flags/AU.png","slug":"sydney"},
+
+	{"name":"Johannesburg", "flag":"flags/johannesburg.png","slug":"johannesburg"},
+	{"name":"Kampala", "flag":"flags/uganda.png","slug":"kampala"},
+	{"name":"Singapore", "flag":"flags/singapore.png","slug":"singapore"},
+
+	{"name":"Beijing", "flag":"flags/china.png","slug":"singapore"},
+	{"name":"Chengdu", "flag":"flags/china.png","slug":"chengdu"},
+	{"name":"Xi'an", "flag":"flags/china.png","slug":"xian"},
+
+	{"name":"Hamburg", "flag":"flags/germany.png","slug":"hamburg"},
+	{"name":"London", "flag":"flags/uk.png","slug":"london"},
+	{"name":"Manchester", "flag":"flags/uk.png","slug":"manchester"},
+
+	{"name":"Bangalore", "flag":"flags/india.png","slug":"bangalore"},
+	{"name":"Chennai", "flag":"flags/india.png","slug":"chennai"},
+	{"name":"Gurgaon", "flag":"flags/india.png","slug":"gurgaon"},
+	{"name":"Pune", "flag":"flags/india.png","slug":"pune"},
+
+	{"name":"Atlanta", "flag":"flags/EUA.png","slug":"atlanta"},
+	{"name":"Chicago", "flag":"flags/EUA.png","slug":"chicago"},
+	{"name":"San Fransisco", "flag":"flags/EUA.png","slug":"san_fransico"},
+	{"name":"Austin", "flag":"flags/EUA.png","slug":"austin"},
+	{"name":"Dalas", "flag":"flags/EUA.png","slug":"dalas"},
+	{"name":"New York", "flag":"flags/EUA.png","slug":"new_york"},
+	{"name":"Toronto", "flag":"flags/canada.png","slug":"toronto"},
+
+	{"name":"Porto Alegre", "flag":"flags/BR.png","slug":"porto_alegre"},
+	{"name":"Recife", "flag":"flags/BR.png","slug":"recife"},
+	{"name":"São Paulo", "flag":"flags/BR.png","slug":"sao_paulo"}
+]
